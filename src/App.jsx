@@ -1,5 +1,4 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login'
@@ -10,7 +9,7 @@ import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +20,7 @@ const App = () => {
         <Route path="/order" element={<Order />} />
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
-    </div>
+    </BrowserRouter>
   )
 }
 
