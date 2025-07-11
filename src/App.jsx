@@ -8,11 +8,14 @@ import Product from './pages/Product'
 import Order from './pages/Order'
 import Navbar from './components/Navbar'
 
+
 const App = () => {
   return (
     <div>
+      <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
@@ -21,6 +24,7 @@ const App = () => {
         <Route path="/order" element={<Order />} />
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
+      </BrowserRouter>
     </div>
   )
 }
