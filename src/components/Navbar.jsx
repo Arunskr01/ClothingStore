@@ -1,16 +1,15 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { assets } from '../assets/assets';
 import React from 'react';
 
 const CustomNavbar = () => {
     return (
-        <Navbar bg="light" expand="lg" >
+        <Navbar expand="lg" style={{ position: 'sticky', top: '0', zIndex: '1000' }}>
             <Container fluid style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>
-                <Navbar.Brand href="/">Style Mint</Navbar.Brand>
+                <Navbar.Brand href="/"><img className="w-50" src={assets.logo} alt="Logo" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -40,6 +39,10 @@ const CustomNavbar = () => {
                         </Nav.Link>
                         <Nav.Link href="/Admin">
                             <p>Admin Panel</p>
+                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                        </Nav.Link>
+                        <Nav.Link href="/Cart">
+                            <p>Cart</p>
                             <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
                         </Nav.Link>
                     </Nav>

@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 a.active hr {
   display: block;
@@ -10,6 +8,7 @@ a.active hr {
 
 * {
   font-family: 'Outfit', sans-serif;
+  background-color: rgb(248, 246, 244);
 }
 
 .prata-regular {

@@ -8,6 +8,8 @@ import Order from './pages/Order'
 import Navbar from './components/Navbar'
 import Collections from './pages/Collections'
 import Admin from './pages/Admin'
+import Contact from './pages/Contact'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -19,13 +21,14 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/order" element={<Order />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/product/:productId" element={<Product />} />
 
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

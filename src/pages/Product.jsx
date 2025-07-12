@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { assets } from '../assets/assets';
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from '../Context/ShopContext';
 
 const Product = () => {
   const { productId } = useParams();
@@ -26,27 +26,27 @@ const Product = () => {
   }, [productId, products]);
 
   return productsData ? (
-    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
-      {/* ---------------------- Producsts Data ----------------------*/}
-      <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
-        {/* ---------------------- products images ---------------------- */}
-
-        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row ">
-          {/* ---------------------- List images ----------------------*/}
-          <div className="flex sm:flex-col  overflow-x-auto sm:overflow-y-scroll justify-between  sm:justify-normal sm:w-[18.7%] w-full">
+    <div className="border-top pt-4" style={{ transition: 'opacity 0.5s ease-in', opacity: 1 }}>
+      {/* Products Data*/}
+      <div className="d-flex flex-column flex-sm-row gap-3">
+        {/* products images */}
+        <div className="d-flex flex-column-reverse flex-sm-row gap-3 flex-grow-1">
+          {/* List of images */}
+          <div className="d-flex flex-sm-column overflow-auto justify-content-between"
+            style={{ maxWidth: '18.7%', width: '100%' }}>
             {productsData.image.map((item, index) => (
               <img
                 key={index}
                 src={item}
                 alt="product"
                 onClick={() => setImage(item)}
-                className="cursor-pointer w-[24%]  sm:w-full sm:mb-3 flex-shrink-0  object-cover"
+                className="ms-3 img-fluid mb-2 cursor-pointer"
               />
             ))}
           </div>
 
-          {/*---------------------- main img---------------------- */}
-          <div className="w-full sm:w-[80%]">
+          {/* main img */}
+          <div className="w-100" style={{ maxWidth: '80%' }}>
             <img
               src={image}
               alt="product"
@@ -55,40 +55,39 @@ const Product = () => {
           </div>
         </div>
 
-        {/* ---------------------- products details ---------------------- */}
+        {/* products details */}
 
-        <div className="flex-1">
-          <h1 className="font-medium text-2xl mt-2">{productsData.name}</h1>
+        <div className="flex-grow-1 mt-3">
+          <h1 className="fw-medium fs-4 mt-2">{productsData.name}</h1>
 
-          <div className="flex items-center gap-1 mt-2">
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_icon} alt="" className="w-3 5" />
-            <img src={assets.star_dull_icon} alt="" className="w-3 5" />
+          <div className="d-flex align-items-center gap-1 mt-2">
+            <img src={assets.star_icon} alt="" className="me-1" style={{ width: "1.5rem" }} />
+            <img src={assets.star_icon} alt="" className="me-1" style={{ width: "1.5rem" }} />
+            <img src={assets.star_icon} alt="" className="me-1" style={{ width: "1.5rem" }} />
+            <img src={assets.star_icon} alt="" className="me-1" style={{ width: "1.5rem" }} />
+            <img src={assets.star_dull_icon} alt="" className="me-1" style={{ width: "1.5rem" }} />
 
-            <p className="pl-2">(122)</p>
+            <p className="ps-2 mb-0">(122)</p>
           </div>
-          <p className="mt-5 text-3xl font-medium">
+          <p className="mt-4 h4 fw-medium">
             {currency}
             {productsData.price}
           </p>
-          <p className="mt-5 text-gray-500 md:w-4/5 ">
+          <p className="mt-4 text-muted" style={{ maxWidth: "80%" }}>
             {productsData.description}
           </p>
 
-          <div className="flex flex-col gap-4 my-8">
-            <p className="">Select Size</p>
-            <div className="flex gap-2">
+          <div className="d-flex flex-column gap-3 my-4">
+            <p className="mb-1">Select Size</p>
+            <div className="d-flex gap-2 flex-wrap">
               {productsData.sizes.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => {
                     setSize(item);
                   }}
-                  className={`w-8 h-8 border bg-gray-100 flex items-center justify-center cursor-pointer
-                  ${item === size ? 'border-orange-500' : ''}
-                  `}
+                  className={`btn border d-flex align-items-center justify-content-center px-3 py-2 ${item === size ? 'border-warning text-warning' : ''}`}
+                  style={{ width: "2rem", height: "2rem", cursor: "pointer" }}
                 >
                   {item}
                 </button>
@@ -98,49 +97,49 @@ const Product = () => {
 
           <button
             onClick={() => addToCart(productsData._id, size)}
-            className="bg-black text-white py-3 px-8 text-sm active:bg-gray-700"
+            className="btn btn-success px-4 py-2 btn-sm"
           >
             ADD TO CART
           </button>
 
-          <hr className="mt-8 sm:w-4/5" />
+          <hr className="my-4" />
 
-          <div className="flex flex-col gap-1 mt-5 text-sm text-gray-500">
-            <p>100% Original product </p>
-            <p>Free delivery on order above $49</p>
-            <p> Easy return and exchange policy within 7 days </p>
+          <div className="d-flex flex-column gap-2 mt-3 text-muted small">
+            <p className="mb-1">100% Original product </p>
+            <p className="mb-1">Free delivery on order above $49</p>
+            <p className="mb-1"> Easy return and exchange policy within 7 days </p>
           </div>
         </div>
       </div>
 
-      {/* ---------------------- Products Description and review section ----------------------*/}
+      {/* Products Description and review section*/}
 
-      <div className="mt-10">
-        <div className="flex">
-          <b className="px-5 py-3 text-sm border">Description</b>
-          <p className="px-5 py-3 text-sm border">Reviews (122)</p>
+      <div className="mt-5">
+        <div className="d-flex border-bottom">
+          <b className="px-3 py-2 border-end">Description</b>
+          <p className="px-3 py-2 mb-0 text-muted small">Reviews (122)</p>
         </div>
 
-        <div className=" flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500 ">
+        <div className="border px-4 py-4 mt-3 text-muted small">
           <p>
-            Ane-commerce website is an online platform that facilitates the
+            An e-commerce website is an online platform that facilitates the
             buying and selling of products or services over the internet. It
-            serves as a vietual marketplace where businesses and individuals.com
-            showcase ther produch, interact with customers, and conduct
-            fransactions without the need for a physical presence. E-commerce
-            websites have goned immense popularity due to their convenience,
+            serves as a virtual marketplace where businesses and individuals can
+            showcase their products, interact with customers, and conduct
+            transactions without the need for a physical presence. E-commerce
+            websites have gained immense popularity due to their convenience,
             accessibility, and the global reach they offer.
           </p>
           <p>
             E-commerce websites typically display products or services along
-            with defailed descriptions, images, prices, and any ovalable
-            variations (eg, sizes colors). Each product uwaly has its ww
-            dedicated page with relevant infurroution
+            with detailed descriptions, images, prices, and any available
+            variations (eg, sizes colors). Each product usually has its own
+            dedicated page with relevant information
           </p>
         </div>
       </div>
 
-      {/* ----------------------  Display Products  Products ----------------------*/}
+      {/* Display Related Products */}
 
       {/* <RelatedProducts
         category={productsData.category}

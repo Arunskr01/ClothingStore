@@ -1,21 +1,28 @@
-import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from '../Context/ShopContext';
 
 const ProductItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
 
   return (
-    <Link to={`/product/${id}`} className="text-gray-700 cursor-pointer">
-      <div className="overflow-hidden border rounded-lg p-4 shadow-sm  h-[300px]">
+    <Link to={`/product/${id}`} className="text-decoration-none text-dark" style={{ cursor: 'pointer' }}>
+      <div
+        className="border rounded p-3 shadow-sm overflow-hidden"
+        style={{ height: '300px' }}
+      >
         <img
           src={image[0]}
-          alt=""
-          className="w-full h-48 object-cover mb-2 rounded hover:scale-110 transition ease-in-out duration-500 "
+          alt={name}
+          className="img-fluid mb-2 rounded"
+          style={{
+            height: '12rem', 
+            width: '100%',
+            objectFit: 'cover',
+          }}
         />
-        <p className="pt-3 pb-1 text-sm ">{name}</p>
-        <p className="text-sm font-medium">
+        <p className="pt-2 mb-1 small">{name}</p>
+        <p className="small fw-medium">
           {currency}
           {price}
         </p>
@@ -24,11 +31,5 @@ const ProductItem = ({ id, image, name, price }) => {
   );
 };
 
-// Add prop validation
-ProductItem.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  image: PropTypes.arrayOf(PropTypes.string),
-  price: PropTypes.number,
-};
+
 export default ProductItem;

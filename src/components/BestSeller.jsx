@@ -1,57 +1,50 @@
 import { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../context/ShopContext';
-import { Link } from 'react-router-dom';
-import React from 'react';
+import ProductItem from './ProductItem';
+import { ShopContext } from '../Context/ShopContext';
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
 
-  console.log(bestSeller);
-
   useEffect(() => {
     if (products) {
       const bestProduct = products.filter((product) => product.bestseller);
-      setBestSeller(bestProduct.slice(0, 5));
+      setBestSeller(bestProduct.slice(0, 4));
     }
-  }, []);
-
-  function handleView(product) {
-    <Link to={`/product/${product._id}`} />
-  }
+  }, [products]);
 
   return (
-    <div className="my-10">
-      <div className="text-center text-3xl py-8">
-        <h3 className="font-bold" style={{ fontFamily: 'Times New Roman' }}>
-          Best Sellers
+    <div className="my-5">
+      {/* Section Heading */}
+      <div className="text-center py-4">
+        <hr />
+        <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'gray' }}>
+          Best Seller
         </h3>
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Our best-selling products that our customers can not get enough of.
-          Shop the most popular items from our store.
+          Explore our best-selling products that have captured the hearts of our customers.
         </p>
+        <hr />
       </div>
 
-      <div className='container'>
-        <div className="d-flex flex-wrap justify-content-between gap-3 p-3">
+      {/* Product Grid */}
+      <div className="container">
+        <div className="row g-3 g-md-4">
           {bestSeller.map((product, idx) => (
-            <div className="card" style={{ width: "18%", minWidth: "180px", borderRadius: "10px" }}>
-              <div className="card-body text-start justify-content-between d-flex flex-column">
-                <Link to={`/product/${product._id}`} className="text-decoration-none text-dark">
-                  <div className="mb-3">
-                    <img onClick={handleView} src={product.image} alt="img" className="img-fluid d-block" style={{ borderRadius: "10px" }} />
-                  </div>
-                </Link>
-                <div className="card p-3 border-0" style={{ backgroundColor: "#f8f9fa" }}>
-                  <hr />
-                  <p>{product.name}</p>
-                  <h5>${product.price}</h5>
-                </div>
-              </div>
+            <div
+              key={idx}
+              className="col-3"
+            >
+              <ProductItem
+                id={product._id}
+                image={product.image}
+                name={product.name}
+                price={product.price}
+              />
             </div>
           ))}
         </div>
-      </div >
+      </div>
     </div>
   );
 };
