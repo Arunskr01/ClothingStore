@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import { ShopContext } from '../Context/ShopContext';
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [productsData, setProductsData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
+  const navigate = useNavigate();
 
   const fetchProductsData = async () => {
     products.map((product) => {
@@ -21,17 +22,25 @@ const Product = () => {
     });
   };
 
+  function addToCart(id, size) {
+    navigate("/cart", {
+      state: {
+        productId: productId
+      }
+    });
+  }
+  
   useEffect(() => {
     fetchProductsData();
   }, [productId, products]);
 
   return productsData ? (
-    <div className="border-top pt-4" style={{ transition: 'opacity 0.5s ease-in', opacity: 1 }}>
+    <div className="border-top pt-4">
       {/* Products Data*/}
       <div className="d-flex flex-column flex-sm-row gap-3">
         {/* products images */}
         <div className="d-flex flex-column-reverse flex-sm-row gap-3 flex-grow-1">
-          {/* List of images */}
+          {/* List */}
           <div className="d-flex flex-sm-column overflow-auto justify-content-between"
             style={{ maxWidth: '18.7%', width: '100%' }}>
             {productsData.image.map((item, index) => (
@@ -45,7 +54,7 @@ const Product = () => {
             ))}
           </div>
 
-          {/* main img */}
+          {/* main image */}
           <div className="w-100" style={{ maxWidth: '80%' }}>
             <img
               src={image}
@@ -96,11 +105,24 @@ const Product = () => {
           </div>
 
           <button
-            onClick={() => addToCart(productsData._id, size)}
+            onClick={() => {
+              if (!size) {
+                alert('Please select a size');
+                return;
+              }
+
+              navigate('/cart', {
+                state: {
+                  productId: productsData._id,
+                  size: size
+                }
+              });
+            }}
             className="btn btn-success px-4 py-2 btn-sm"
           >
             ADD TO CART
           </button>
+
 
           <hr className="my-4" />
 
@@ -112,7 +134,7 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Products Description and review section*/}
+      {/* Description */}
 
       <div className="mt-5">
         <div className="d-flex border-bottom">
@@ -139,13 +161,7 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Display Related Products */}
-
-      {/* <RelatedProducts
-        category={productsData.category}
-        subCategory={productsData.subCategory}
-      /> */}
-    </div>
+    </div >
   ) : (
     <div className="opacity-0"></div>
   );

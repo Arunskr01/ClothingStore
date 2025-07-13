@@ -2,27 +2,27 @@
 
 @import "tailwindcss";
 
-a.active hr {
+.nav-link hr {
+  display: none;
+  height: 2.5px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  margin-top: -10px;
+}
+
+.nav-link.active hr {
   display: block;
 }
+
 
 * {
   font-family: 'Outfit', sans-serif;
   background-color: rgb(248, 246, 244);
 }
 
-.prata-regular {
-  font-family: 'Prata', serif;
-  font-weight: 400;
-  font-style: normal;
-}
 
 ::-webkit-scrollbar {
   display: none;
 }
-@media (max-width: 640px) {
-  a.active {
-    background-color: black;
-    color: white;
-  }
-}
+

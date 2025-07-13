@@ -4,7 +4,6 @@ const About = () => {
     <div className="container py-4">
       {/* Title: About Us */}
       <div className="text-center pt-4 border-top">
-        <hr />
         <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'gray' }}>
           About Us
         </h3>
@@ -17,32 +16,34 @@ const About = () => {
           <img
             src={assets.about_img}
             alt="About"
-            className="img-fluid w-100"
-            style={{ maxWidth: '450px' }}
+            className="img-fluid"
+            style={{ maxWidth: '450px', width: '400px' }}
           />
         </div>
 
         <div className="col-md-6 text-secondary d-flex flex-column justify-content-center gap-3">
           <p>
-            Forever was born out of a passion for innovation and a desire to
-            revolutionize the way people shop online. Our journey began with a
-            simple idea to provide a platform where customers can easily
-            discover, explore, and purchase a wide range of products from the
-            comfort of their homes.
+            Style Mint is a modern clothing brand that blends simplicity with
+            sophistication. Focused on timeless design and clean aesthetics,
+            Style Mint offers carefully curated fashion essentials for those who value
+            effortless style. With subtle colors, sharp cuts, and a minimal vibe,
+            it's where fashion meets clarity.
           </p>
           <p>
-            Since our inception, we’ve worked tirelessly to curate a
-            diverse selection of high-quality products that cater to every taste
-            and preference. From fashion and beauty to electronics and home
-            essentials, we offer an extensive collection sourced from trusted
-            brands and suppliers.
+            Every piece at Style Mint is designed with versatility and comfort
+            in mind, making it easy to dress up or down for any occasion. Whether
+            you're curating a capsule wardrobe or just love clean lines and modern silhouettes,
+            Style Mint helps you express your personal style without the noise—just refined,
+            everyday fashion that lasts.
+
           </p>
           <b className="text-dark">Our Mission</b>
           <p>
-            Our mission at Forever is to empower customers with
-            choice, convenience, and confidence. We’re dedicated to providing a
-            seamless shopping experience that exceeds expectations—from
-            browsing and ordering to delivery and beyond.
+            At Style Mint, our mission is to redefine everyday fashion through minimalism. 
+            We aim to create clothing that inspires confidence, simplicity, and 
+            sustainability—empowering individuals to express themselves through timeless, 
+            well-crafted pieces. We believe in quality over quantity, and design that speaks 
+            softly but leaves a lasting impression.
           </p>
         </div>
       </div>
@@ -59,7 +60,7 @@ const About = () => {
       {/* Feature Cards */}
       <div className="row text-secondary mb-5 g-4">
         <div className="col-md-4">
-          <div className="border px-4 py-5 h-100 d-flex flex-column gap-2">
+          <div className="px-4 py-5 h-100 d-flex flex-column gap-2">
             <b className="text-dark">Quality Assurance</b>
             <p>
               We take pride in offering only the highest quality products that
@@ -69,7 +70,7 @@ const About = () => {
         </div>
 
         <div className="col-md-4">
-          <div className="border px-4 py-5 h-100 d-flex flex-column gap-2">
+          <div className="px-4 py-5 h-100 d-flex flex-column gap-2">
             <b className="text-dark">Convenience</b>
             <p>
               Our user-friendly website and mobile app make it easy to browse,
@@ -79,7 +80,7 @@ const About = () => {
         </div>
 
         <div className="col-md-4">
-          <div className="border px-4 py-5 h-100 d-flex flex-column gap-2">
+          <div className="px-4 py-5 h-100 d-flex flex-column gap-2">
             <b className="text-dark">Exceptional Customer Services</b>
             <p>
               Our dedicated team of customer service representatives is available

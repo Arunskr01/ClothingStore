@@ -15,10 +15,10 @@ const BestSeller = () => {
 
   return (
     <div className="my-5">
-      {/* Section Heading */}
+
       <div className="text-center py-4">
         <hr />
-        <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'gray' }}>
+        <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'green' }}>
           Best Seller
         </h3>
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">

@@ -8,13 +8,15 @@ import React from 'react';
 const CustomNavbar = () => {
     return (
         <Navbar expand="lg" style={{ position: 'sticky', top: '0', zIndex: '1000' }}>
-            <Container fluid style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>
-                <Navbar.Brand href="/"><img className="w-50" src={assets.logo} alt="Logo" /></Navbar.Brand>
+            <Container fluid style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', textAlign: 'center' }}>
+                <Navbar.Brand href="/">
+                    <img  style={{ marginLeft: '50px', marginTop: '10px', marginRight: '310px', width: '85px', height: 'auto' }} src={assets.logo} alt="Logo" />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px', gap: '25px', overflowY: 'auto', marginLeft: '50px' }}
+                        style={{ maxHeight: '100px', gap: '25px', overflowY: 'auto', textAlign: 'center' }}
                         navbarScroll
                     >
                         <Nav.Link href="/">
@@ -29,16 +31,12 @@ const CustomNavbar = () => {
                             <p>About</p>
                             <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
                         </Nav.Link>
-                        <Nav.Link href="/Contact">
-                            <p>Contact Us</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
                         <Nav.Link href="/Login">
                             <p>Login</p>
                             <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
                         </Nav.Link>
-                        <Nav.Link href="/Admin">
-                            <p>Admin Panel</p>
+                        <Nav.Link href="/order">
+                            <p>Orders</p>
                             <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
                         </Nav.Link>
                         <Nav.Link href="/Cart">
@@ -50,10 +48,10 @@ const CustomNavbar = () => {
                         <Form.Control
                             type="search"
                             placeholder="Search"
-                            className="me-2"
+                            className="me-2 w-50"
                             aria-label="Search"
                         />
-                        <button className="btn btn-outline-secondary" type="submit">
+                        <button className="btn btn-outline-secondary me-5" type="submit">
                             <i className="bi bi-search"></i>
                         </button>   
                     </Form>

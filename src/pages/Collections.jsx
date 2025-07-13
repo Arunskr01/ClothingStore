@@ -59,7 +59,7 @@ const Collection = () => {
         <p
           onClick={() => setShowFilter(!showFilter)}
           className="ms-2 mb-4 my-2 h5 d-flex align-items-center gap-2"
-          style={{ cursor: 'pointer' }}
+          style={{color: 'green'}}
         >
           Filters
           <img
@@ -72,7 +72,7 @@ const Collection = () => {
 
         {/* Category Filter */}
         <div style={{borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'}} className={`ms-2 border p-3 mt-3 ${showFilter ? '' : 'd-none d-sm-block'}`}>
-          <p className="mb-2 small fw-bold">CATEGORIES</p>
+          <p className="mb-2 small fw-bold" style={{color: 'green'}}>CATEGORIES</p>
           <div className="d-flex flex-column gap-2 small text-muted">
             {['Men', 'Women', 'Kids'].map((cat) => (
               <label key={cat} className="d-flex align-items-center gap-2">
@@ -91,7 +91,7 @@ const Collection = () => {
 
         {/* Subcategory Filter */}
         <div style={{borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'}} className={`ms-2 border p-3 my-4 ${showFilter ? '' : 'd-none d-sm-block'}`}>
-          <p className="mb-2 small fw-bold">TYPES</p>
+          <p className="mb-2 small fw-bold" style={{color: 'green'}}>TYPES</p>
           <div className="d-flex flex-column gap-2 small text-muted">
             {['Topwear', 'Bottomwear', 'Winterwear'].map((type) => (
               <label key={type} className="d-flex align-items-center gap-2">
@@ -112,7 +112,7 @@ const Collection = () => {
       {/* Product Section */}
       <div className="flex-grow-1">
         <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-          <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'gray' }}>
+          <h3 className='text-center py-8 text-3xl font-bold text-gray-700' style={{ color: 'green' }}>
             COLLECTIONS
           </h3>
         </div>
