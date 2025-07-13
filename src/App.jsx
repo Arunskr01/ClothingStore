@@ -10,6 +10,7 @@ import Collections from './pages/Collections'
 import Admin from './pages/Admin'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import Error from './pages/Error'
 
 const App = () => {
   return (
@@ -25,8 +26,7 @@ const App = () => {
         <Route path="/order" element={<Order />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/product/:productId" element={<Product />} />
-
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>
