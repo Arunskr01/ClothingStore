@@ -1,64 +1,52 @@
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { assets } from '../assets/assets';
-import React from 'react';
+import { Button } from 'react-bootstrap';
 
-const CustomNavbar = () => {
+function BasicExample() {
     return (
-        <Navbar expand="lg" style={{ position: 'sticky', top: '0', zIndex: '1000' }}>
-            <Container fluid style={{ fontFamily: 'Times New Roman', fontWeight: 'bold', textAlign: 'center' }}>
-                <Navbar.Brand href="/">
-                    <img  style={{ marginLeft: '50px', marginTop: '10px', marginRight: '310px', width: '85px', height: 'auto' }} src={assets.logo} alt="Logo" />
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
-                    <Nav
-                        className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px', gap: '25px', overflowY: 'auto', textAlign: 'center' }}
-                        navbarScroll
-                    >
-                        <Nav.Link href="/">
-                            <p>Home</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
-                        <Nav.Link href="/Collections">
-                            <p>Collections</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />   
-                        </Nav.Link>
-                        <Nav.Link href="/About">
-                            <p>About</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
-                        <Nav.Link href="/Login">
-                            <p>Login</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
-                        <Nav.Link href="/order">
-                            <p>Orders</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
-                        <Nav.Link href="/Cart">
-                            <p>Cart</p>
-                            <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
-                        </Nav.Link>
-                    </Nav>
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2 w-50"
-                            aria-label="Search"
-                        />
-                        <button className="btn btn-outline-secondary me-5" type="submit">
-                            <i className="bi bi-search"></i>
-                        </button>   
-                    </Form>
-                </Navbar.Collapse>
+        <Navbar expand="lg">
+            <Container>
+                <div>
+                    <Navbar.Brand href="#home">
+                        <img style={{ marginTop: '10px', width: '85px', height: 'auto' }} src={assets.logo} alt="Logo" />
+                    </Navbar.Brand>
+                </div>
+                <div>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto" style={{gap: '15px'}}>
+                            <Nav.Link href="/">
+                                <p>Home</p>
+                                <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                            </Nav.Link>
+                            <Nav.Link href="/Collections">
+                                <p>Collections</p>
+                                <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                            </Nav.Link>
+                            <Nav.Link href="/About">
+                                <p>About</p>
+                                <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                            </Nav.Link>
+                            <Nav.Link href="/Login">
+                                <p>Login</p>
+                                <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                            </Nav.Link>
+                            <Nav.Link href="/order">
+                                <p>Orders</p>
+                                <hr style={{ border: 'none', height: '2.5px', backgroundColor: 'black', borderRadius: '5px', marginTop: '-10px' }} />
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </div>
+                <div>
+                    <Button href="/Cart" variant='success' className='bi bi-cart'></Button>
+                </div>
             </Container>
         </Navbar>
-    )
+    );
 }
 
-export default CustomNavbar
+export default BasicExample;
